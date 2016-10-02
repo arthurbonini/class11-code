@@ -1,6 +1,11 @@
-
+/**
+ * A class to test the functionality of the Deck and Card Classes
+ * 
+ * @author Arthur Bonini
+ *
+ */
 public class MainDriver {
-
+	//HANDS can be MAXIMUM 52
 	static final int HANDS = 52;
 	
 	public static void main(String[] args) {
@@ -10,16 +15,22 @@ public class MainDriver {
 		
 		int player1Score = 0, player2Score = 0;
 		
+		//Create Card objects to hold the drawn player cards
 		Card p1Card, p2Card;
+		
 		System.out.println("    P1\tvs  P2");
 		System.out.println("---------------------------------------");
 		
+		//Play the game for HANDS rounds (max 52)
 		for (int i = 0; i < HANDS; i++){
+			//Draw cards from each players hands
 			p1Card = player1.draw();
 			p2Card = player2.draw();
 			
-			System.out.printf("%2d: %s\tvs%4s\t", i+1, p1Card.toString(true), p2Card.toString(true));
+			//Print out the cards values
+			System.out.printf("%2d: %s\tvs%4s\t", i+1, p1Card.getSymbol(), p2Card.getSymbol());
 			
+			//Check the winner and add points
 			if (p1Card.winner(p2Card)){
 				player1Score++;
 				System.out.println(" --Player 1 Wins!");
